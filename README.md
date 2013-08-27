@@ -4,7 +4,15 @@ Another class library for lua. This one has getters and setters.
 
 ### Syntax:
 
-This will (start) implement a basic rectangle class:
+Adding it to your project:
+
+Just put:
+```lua
+require 'class' -- or whatever directory you put it in
+```
+at the top of your main.lua.
+
+This will (start to) implement a basic rectangle class:
 
 ```lua
 rect = class()
@@ -54,7 +62,8 @@ Inheritance (including multiple inheritance) is also supported:
 quad = class()
 ... -- quad methods/properties here
 
-aabb = class(rect, quad) -- make it inherit from rect and quad, rect gets a higher priority
+aabb = class(rect, quad) -- make it inherit from rect and quad
+			 -- rect comes before quad, do it gets more priority
 ... -- aabb methods/properties here
 ```
 
