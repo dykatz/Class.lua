@@ -4,15 +4,12 @@ Another class library for lua. This one has getters and setters.
 
 ### Syntax:
 
-Adding it to your project:
-
-Just put:
+##### To add to your project, at the top of main.lua, put this:
 ```lua
 require 'class' -- or whatever directory you put it in
 ```
-at the top of your main.lua.
 
-This will (start to) implement a basic rectangle class:
+##### This will (start to) implement a basic rectangle class:
 
 ```lua
 rect = class()
@@ -46,7 +43,7 @@ rect.right = {
 }
 ```
 
-Class methods are handled the same way as most other class libraries:
+##### Class methods are handled the same way as most other class libraries:
 
 ```lua
 rect.move = function(dx, dy)
@@ -56,14 +53,14 @@ rect.move = function(dx, dy)
 end
 ```
 
-Inheritance (including multiple inheritance) is also supported:
+##### Inheritance (including multiple inheritance) is also supported:
 
 ```lua
 quad = class()
 ... -- quad methods/properties here
 
 aabb = class(rect, quad) -- make it inherit from rect and quad
-			 -- rect comes before quad, do it gets more priority
+                         -- rect comes before quad, so it gets more priority
 ... -- aabb methods/properties here
 ```
 
