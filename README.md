@@ -66,4 +66,4 @@ aabb = class(rect, quad) -- make it inherit from rect and quad
 
 ### Licence:
 
-Do whatever with it.
+Do whatever with it. There is no warranty. Just don't sue me if it doesn't work.
