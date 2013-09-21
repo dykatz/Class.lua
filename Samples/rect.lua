@@ -64,8 +64,6 @@ rect.height = {
 }
 
 rect.resize = function(self, w, h)
-	w = w or self.w
-	h = h or self.h
-	self.width = w
-	self.height = h
+	self.width = w or self.w
+	self.height = h or self.h
 end
