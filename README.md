@@ -64,6 +64,20 @@ aabb = class(rect, quad) -- make it inherit from rect and quad
 ... -- aabb methods/properties here
 ```
 
+##### About the Samples:
+
+Within the samples folder are files showing off the class library.
+
+To use, put:
+
+```lua
+require 'class'
+require <insert filename here>
+...
+```
+
+at the top of your program.
+
 ### Licence:
 
-Do whatever with it. There is no warranty. Just don't sue me if it doesn't work.
+Do whatever with it. There is no warranty. Just don't sue me if it doesn't work the way you expected.
