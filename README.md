@@ -14,7 +14,7 @@ require 'class' -- or whatever directory you put it in
 ```lua
 rect = class()
 
-rect.init = function(...)
+rect.init = function(self, ...)
 	local arg = {...}
 	self.x = arg[1] or 0
 	self.y = arg[2] or 0
@@ -64,19 +64,15 @@ aabb = class(rect, quad) -- make it inherit from rect and quad
 ... -- aabb methods/properties here
 ```
 
-##### About the Samples:
+### About the Samples:
 
-Within the samples folder are files showing off the class library.
-
-To use, put:
+##### They show off features of the library. At the top of your program, put:
 
 ```lua
 require 'class'
 require <insert filename here>
 ...
 ```
-
-at the top of your program.
 
 ### Licence:
 
