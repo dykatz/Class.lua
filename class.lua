@@ -33,7 +33,7 @@ function class(...)
 				end
 			end
 			if type(rawget(base, '__children')) == 'table' then
-				rawset(rawget(base, '__children'), #rawget(base, '__children') + 1, self)
+				rawset(rawget(base, '__children'), #rawget(base, '__children') + 1, c)
 			end
 		end
 	end
