@@ -1,6 +1,6 @@
 # Class.lua
 
-Another class library for lua. This one has getters and setters.
+Another class library for lua. This one has getters and setters. MIT License.
 
 ### Syntax:
 
@@ -74,6 +74,41 @@ require <insert filename here>
 ...
 ```
 
-### Licence:
+# Polyclass.lua
 
-Do whatever with it. There is no warranty. Just don't sue me if it doesn't work the way you expected.
+(Will be) an incredibly feature rich class library for lua. Meant to go with [polycode](http://polycode.org). Still highly experimental, as it needs to go through testing, as well as compatibility with polycode's c++ classes. MIT License.
+
+### Usage
+
+```lua
+require 'polyclass'
+```
+
+### Syntax
+
+```lua
+class 'Foo'
+local count = 0
+
+function Foo:init(x)
+	self.x = x
+	count = count + 1
+end
+
+Foo.static.count = {
+	get = function(self)
+		return count
+	end,
+}
+```
+You can see how properties are handled, as will as static stuffs.
+
+### Limitations
+
+*Cannot do static properties that set via function or table*
+This is primarily due to a logistical error with defining non-statics and setting static properties, which both use the same syntax. I may set up a sort of 'packing' of classes once you have defined them.
+
+### Compatibility
+
+Supports class commons. Yay!
+
