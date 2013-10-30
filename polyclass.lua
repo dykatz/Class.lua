@@ -16,7 +16,7 @@ function class(name)
 			return rawget(class, key)
 		elseif type(rawget(class, key)) == 'table' and key ~= 'static' and key ~= '__children' and
 			type(rawget(rawget(class, key), 'get')) == 'function' then
-			return rawget(rawget(class, key), 'get')(self, key)
+			return rawget(rawget(class, key), 'get')(self)
 		else
 			return rawget(self, key)
 		end
@@ -26,7 +26,7 @@ function class(name)
 	function class:__newindex(key, val)
 		if type(rawget(class, key)) == 'table' and key ~= 'static' and key ~= '__children' and
 			type(rawget(rawget(class, key), 'set')) == 'function' then
-			return rawget(rawget(class, key), 'set')(self, key, val)
+			return rawget(rawget(class, key), 'set')(self, val)
 		else
 			return rawset(self, key, val)
 		end
@@ -73,7 +73,7 @@ function meta:__index(key)
 		return rawget(rawget(self, static), key)
 	elseif type(rawget(rawget(self, static), key)) == 'table' and
 		type(rawget(rawget(rawget(self, static), key), 'get')) == 'function' then
-		return rawget(rawget(self, static), key)(self, key)
+		return rawget(rawget(self, static), key)(self)
 	else
 		return rawget(meta, key)
 	end
@@ -83,7 +83,7 @@ end
 function meta:__newindex(key, val)
 	if type(rawget(rawget(self, static), key)) == 'table' and type(val) ~= 'function' and
 		type(val) ~= 'table' and type(rawget(rawget(rawget(self, static), key), 'set')) == 'function' then
-		return rawget(rawget(rawget(self, static), key), 'set')(self, key, val)
+		return rawget(rawget(rawget(self, static), key), 'set')(self, val)
 	else
 		if val ~= '__bases' and val ~= '__children' and val ~= 'static' then
 			return rawset(self, key, val)
