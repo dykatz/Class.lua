@@ -69,11 +69,11 @@ end
 
 -- Allows for static methods and getters, as well as use of interclass static methods (stored in 'meta')
 function meta:__index(key)
-	if type(rawget(rawget(self, static), key)) == 'function' then
-		return rawget(rawget(self, static), key)
-	elseif type(rawget(rawget(self, static), key)) == 'table' and
-		type(rawget(rawget(rawget(self, static), key), 'get')) == 'function' then
-		return rawget(rawget(self, static), key)(self)
+	if type(rawget(rawget(self, 'static'), key)) == 'function' then
+		return rawget(rawget(self, 'static'), key)
+	elseif type(rawget(rawget(self, 'static'), key)) == 'table' and
+		type(rawget(rawget(rawget(self, 'static'), key), 'get')) == 'function' then
+		return rawget(rawget(self, 'static'), key)(self)
 	else
 		return rawget(meta, key)
 	end
@@ -81,9 +81,9 @@ end
 
 -- Allows for static setters, as well as protection for class-related tables
 function meta:__newindex(key, val)
-	if type(rawget(rawget(self, static), key)) == 'table' and type(val) ~= 'function' and
-		type(val) ~= 'table' and type(rawget(rawget(rawget(self, static), key), 'set')) == 'function' then
-		return rawget(rawget(rawget(self, static), key), 'set')(self, val)
+	if type(rawget(rawget(self, 'static'), key)) == 'table' and type(val) ~= 'function' and
+		type(val) ~= 'table' and type(rawget(rawget(rawget(self, 'static'), key), 'set')) == 'function' then
+		return rawget(rawget(rawget(self, 'static'), key), 'set')(self, val)
 	else
 		if val ~= '__bases' and val ~= '__children' and val ~= 'static' then
 			return rawset(self, key, val)
